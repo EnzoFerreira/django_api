@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import JsonResponse
-from genre.views import genre_view
+from genre.views import genre_list, genre_detail
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('genres/', genre_view, name='genres_list'),
+    path('genres', genre_list, name='genres_list'),
+    path('genre/<int:pk>', genre_detail, name='genre_detail'),
 ]
